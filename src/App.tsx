@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { FC, memo } from 'react';
+import { ThemeProvider } from 'styled-components';
 
-const App: React.FC = (): JSX.Element => {
-	return <>test</>;
+import GlobalStyle from './styles/global';
+import theme from './styles/theme';
+import Layout from './components/Layout';
+
+const App: FC = (): JSX.Element => {
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle />
+			<Layout />
+		</ThemeProvider>
+	);
 };
 
-export default App;
+export default memo(App);
